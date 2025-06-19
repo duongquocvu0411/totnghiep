@@ -1,0 +1,79 @@
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Thiệp mời tốt nghiệp</title>
+
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+
+    <canvas id="fireworks-canvas"></canvas>
+    <div class="background-decor" id="decor-container"></div>
+
+    <div class="container py-5">
+    <div class="invitation-card text-center">
+        <div class="invitation-header mb-4">
+        <div><i class="fa-solid fa-graduation-cap fa-2x mb-2"></i></div>
+        <h1>Lễ Tốt Nghiệp</h1>
+        <h3>Trân trọng kính mời bạn đến tham dự 🎓</h3>
+        <p class="text-muted">Của <strong>Ngọc Trâm</strong></p>
+        </div>
+
+        <!-- Album ảnh tràn khung -->
+        <div class="photo-album my-4">
+        <div id="albumCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000" data-bs-touch="true">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="flip-wrapper">
+                <img src="test.jpg" class="d-block w-100 album-img" alt="Ảnh 1">
+                <p class="album-caption">Ngày nhập học đầu tiên 🏫</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="flip-wrapper">
+                <img src="test2.jpg" class="d-block w-100 album-img" alt="Ảnh 2">
+                <p class="album-caption">Buổi thuyết trình cuối kỳ 🎤</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="flip-wrapper">
+                <img src="test3.jpg" class="d-block w-100 album-img" alt="Ảnh 3">
+                <p class="album-caption">Khoảnh khắc tốt nghiệp 🎓</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Thông tin sự kiện -->
+        <div class="event-info text-start px-3 mt-4">
+        <p><i class="fa-solid fa-calendar-days"></i> <strong>Chủ Nhật</strong> - 25/05/2025</p>
+        <p><i class="fa-solid fa-clock"></i> Bắt đầu lúc: <strong>08:00 sáng</strong></p>
+        <p><i class="fa-solid fa-location-dot"></i> Trường ĐH Kinh tế - Kỹ thuật Bình Dương</p>
+        <p class="ms-4">333 Đường Thích Quảng Đức, P. Phú Cường, TP. Thủ Dầu Một</p>
+        </div>
+
+        <div class="quote mt-4">
+        “Thời sinh viên kết thúc thật rồi. Hành trình mới lại bắt đầu...<br>
+        Sẽ thật tuyệt vời nếu có bạn hiện diện và chia sẻ khoảnh khắc đáng nhớ này cùng mình.” 🌟
+        </div>
+
+        <div class="footer-note mt-4">
+        ✨ Rất mong sự hiện diện của bạn! ✨
+        </div>
+    </div>
+    </div>
+
+    <!-- JS -->
+    <script src="effects.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
