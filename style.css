@@ -156,8 +156,12 @@ html, body {
   color: #5d4037;
   text-align: center;
   background: none; /* ✅ Bỏ nền riêng */
+  backdrop-filter: blur(2px);
 }
 
+.carousel-inner {
+  transition: transform 0.6s ease-in-out;
+}
 @keyframes flipIn {
   from {
     transform: rotateY(-90deg);
@@ -296,4 +300,20 @@ html, body {
     .footer-note {
         font-size: 1.1rem; /* Giảm size footer note */
     }
+}
+.text-gradient {
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 576px) {
+  .invitation-header h1 {
+    font-size: 2rem !important;
+  }
+
+  .invitation-header h3 {
+    font-size: 1.2rem !important;
+  }
 }
