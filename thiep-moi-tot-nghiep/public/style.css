@@ -1,0 +1,319 @@
+/* Giữ nguyên các styles global, background, decor, invitation-card header và footer */
+html, body {
+  margin: 0;
+  padding: 0;
+  /* height: 100%; ✅ Đã bỏ ở lần tối ưu trước, giữ nguyên min-height */
+  min-height: 100vh; /* Đảm bảo background phủ hết trang */
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(120deg, #2b1055, #7597de);
+  background-attachment: fixed;
+  color: #333; /* Đặt màu chữ mặc định cho card */
+}
+
+/* Background Effects - Giữ nguyên */
+#fireworks-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  /* ✅ Thêm fallback background nếu canvas không load */
+  background-color: #2b1055;
+}
+
+.background-decor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.decor-item {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  animation: fall linear infinite;
+  opacity: 0.9;
+}
+
+.decor-item img {
+  width: 100%;
+  height: auto;
+  display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+
+/* Invitation Card - Điều chỉnh max-width theo code mới nhất bạn cung cấp (850px) */
+.invitation-card {
+  position: relative;
+  max-width: 850px; /* Sử dụng max-width từ code mới nhất bạn cung cấp */
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px 25px; /* Giữ padding của card chính */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header - Giữ nguyên */
+.invitation-header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  color: #a0522d;
+}
+
+.invitation-header h3 {
+  font-weight: 600;
+  color: #5d4037;
+}
+
+/* Ảnh tốt nghiệp tròn - Giữ nguyên */
+.graduate-photo img {
+  width: 150px;
+  height: 150px; /* ✅ Đảm bảo ảnh tròn */
+  object-fit: cover; /* ✅ Đảm bảo ảnh không méo */
+  border-radius: 50%;
+  border: 6px solid #fff;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px auto; /* Thêm margin top/bottom cho ảnh */
+}
+
+.graduate-photo img:hover {
+  transform: scale(1.08); /* Tăng hiệu ứng hover */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Tăng shadow khi hover */
+}
+
+
+/* Photo Album Container - Đã điều chỉnh */
+.photo-album {
+  width: 100%; /* Vẫn 100% của parent (phần padding của card) */
+  /* ✅ Bỏ các thuộc tính background, padding, box-shadow, border-radius riêng */
+  background: none; /* Bỏ nền riêng */
+  padding: 0 0px; /* Bỏ padding riêng. Sẽ dùng padding của .invitation-card */
+  box-shadow: none; /* Bỏ shadow riêng */
+  border-radius: 0; /* Bỏ border-radius riêng */
+  overflow: hidden; /* Vẫn cần overflow hidden để border-radius của card hoạt động */
+  margin: 30px 0; /* Điều chỉnh margin top/bottom, margin left/right bằng 0 */
+}
+
+
+/* Flip Wrapper - Đã điều chỉnh */
+.flip-wrapper {
+  /* perspective: 800px; ✅ Có thể giữ nếu muốn hiệu ứng 3D */
+  padding: 0; /* ✅ Bỏ padding riêng */
+  background: none; /* ✅ Bỏ nền riêng */
+  border-radius: 0; /* ✅ Bỏ border-radius riêng */
+  /* box-shadow: 0 6px 20px rgba(0,0,0,0.2); ✅ Bỏ shadow riêng */
+  transform-style: preserve-3d; /* Giữ nguyên */
+  animation: flipIn 0.6s ease; /* Giữ nguyên */
+}
+
+/* Album Image - Đã điều chỉnh */
+.album-img {
+  width: 100%; /* ✅ Set width 100% để ảnh tràn hết chiều ngang trong container album */
+  margin: 0; /* ✅ Bỏ margin auto, ảnh sẽ căn trái (nhưng vì width 100% nên không thấy) */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  /* border-radius: 10px; ✅ Có thể giữ hoặc bỏ tùy ý, giữ để góc ảnh bo tròn */
+  border-radius: 10px;
+  /* border: 1px solid #eee; ✅ Có thể giữ border nhẹ nếu muốn */
+
+  /* ✅ ĐẶT CHIỀU CAO TỐI ĐA BAN ĐẦU */
+  max-height: 450px; /* Chiều cao tối đa trên màn hình lớn */
+}
+
+/* Album Caption - Đã điều chỉnh */
+.album-caption {
+  /* padding: 12px; ✅ Có thể giảm hoặc bỏ */
+  padding: 8px 0; /* Padding top/bottom, bỏ padding left/right */
+  margin: 0;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #5d4037;
+  text-align: center;
+  background: none; /* ✅ Bỏ nền riêng */
+  backdrop-filter: blur(2px);
+}
+
+.carousel-inner {
+  transition: transform 0.6s ease-in-out;
+}
+@keyframes flipIn {
+  from {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+/* Event Info - Điều chỉnh padding và margin */
+/* ✅ Bỏ class px-3 trong HTML của div.event-info để nó kế thừa padding của card */
+.event-info {
+   margin-top: 30px; /* Tăng margin top */
+   font-size: 1.1rem; /* Tăng font size */
+   line-height: 1.8; /* Tăng line-height */
+   color: #444; /* Màu chữ đậm hơn */
+   /* ✅ Thêm padding ngang để nó thẳng hàng với các nội dung khác trong card */
+   padding: 0 25px; /* Padding ngang bằng với padding của .invitation-card */
+}
+
+.event-info i {
+  color: #8b4513; /* SaddleBrown */
+  margin-right: 10px; /* Tăng margin phải */
+  width: 20px; /* Đảm bảo icon thẳng hàng */
+  text-align: center;
+}
+
+.event-info p {
+    margin-bottom: 8px; /* Thêm khoảng cách giữa các dòng info */
+}
+
+.event-info .ms-4 {
+    /* ✅ Căn lề địa chỉ thẳng hàng với icon. Tính toán dựa trên icon width + margin-right */
+    margin-left: calc(20px + 10px) !important; /* Width icon (khoảng 20px) + margin-right (10px) */
+    font-size: 1rem; /* Giảm size địa chỉ một chút */
+    color: #555;
+}
+
+/* Quote - Giữ nguyên */
+.quote {
+  font-style: italic;
+  margin-top: 30px; /* Tăng margin top */
+  color: #555;
+  background: #fdf2e9; /* Nền nhẹ nhàng */
+  padding: 20px; /* Tăng padding */
+  border-left: 5px solid #e0a96d; /* Peru */
+  border-radius: 8px;
+  line-height: 1.6; /* Tăng line-height */
+  font-size: 1.05rem; /* Tăng font size */
+  margin-left: 25px; /* Thẳng hàng với padding card */
+  margin-right: 25px; /* Thẳng hàng với padding card */
+}
+
+
+/* Footer Note - Giữ nguyên */
+.footer-note {
+  margin-top: 30px; /* Tăng margin top */
+  font-weight: bold;
+  color: #d2691e; /* Chocolate */
+  font-size: 1.2rem; /* Tăng font size */
+  text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Màn hình laptop nhỏ, tablet ngang */
+    .album-img {
+        max-height: 380px; /* Giảm chiều cao tối đa */
+    }
+     .invitation-card {
+         padding: 25px 20px; /* Giảm padding card */
+     }
+     .event-info, .quote {
+         padding-left: 20px; /* Điều chỉnh padding ngang */
+         padding-right: 20px;
+     }
+      .event-info .ms-4 {
+         margin-left: calc(20px + 10px) !important; /* Giữ nguyên vì icon size không đổi */
+     }
+}
+
+@media (max-width: 768px) { /* Màn hình tablet dọc, mobile ngang */
+     .invitation-card {
+         margin: 30px 15px; /* Giảm margin ngang */
+         padding: 20px 15px; /* Giảm padding card */
+     }
+     .album-img {
+        max-height: 300px; /* Giảm chiều cao tối đa */
+    }
+     .event-info, .quote {
+         padding-left: 15px; /* Điều chỉnh padding ngang */
+         padding-right: 15px;
+     }
+     .event-info .ms-4 {
+         margin-left: calc(20px + 10px) !important; /* Giữ nguyên */
+     }
+}
+
+@media (max-width: 576px) { /* Màn hình điện thoại */
+    .invitation-card {
+        margin: 20px 10px; /* Giảm margin ngang */
+        padding: 15px 10px; /* Giảm padding card */
+        border-radius: 15px;
+    }
+    .invitation-header h1 {
+        font-size: 2.2rem; /* Giảm size H1 */
+    }
+    .invitation-header h3 {
+        font-size: 1.3rem; /* Giảm size H3 */
+    }
+     .graduate-photo img {
+        width: 120px; /* Giảm size ảnh tốt nghiệp */
+        height: 120px;
+    }
+    .album-img {
+        max-height: 220px; /* Giảm chiều cao tối đa đáng kể trên điện thoại */
+    }
+     .album-caption {
+         font-size: 0.85rem; /* Giảm size caption */
+         padding-top: 6px; /* Giảm padding top */
+     }
+     .event-info, .quote {
+         padding-left: 10px; /* Điều chỉnh padding ngang */
+         padding-right: 10px;
+         font-size: 0.95rem; /* Giảm size info */
+     }
+     .event-info .ms-4 {
+         margin-left: calc(16px + 8px) !important; /* Ước lượng icon nhỏ hơn trên mobile */
+         font-size: 0.9rem;
+     }
+    .quote {
+        padding: 10px; /* Giảm padding quote */
+        font-size: 0.95rem;
+    }
+    .footer-note {
+        font-size: 1.1rem; /* Giảm size footer note */
+    }
+}
+.text-gradient {
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 576px) {
+  .invitation-header h1 {
+    font-size: 2rem !important;
+  }
+
+  .invitation-header h3 {
+    font-size: 1.2rem !important;
+  }
+}
